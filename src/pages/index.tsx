@@ -5,7 +5,7 @@ import { QueryListenerOptions, StructuredText, TitleMetaLinkTag } from 'react-da
 import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 import { Image } from 'react-datocms';
 
-import { Layout, Container } from 'components';
+import { Layout, Container, Section } from 'components';
 import { sdk } from 'lib/datocms';
 import type { HomePageQuery, HomePageQueryVariables } from 'lib/graphql';
 import { HomePageDocument } from 'lib/graphql';
@@ -53,38 +53,40 @@ const HomePage = ({
       <Container classNames="flex min-h-screen flex-col items-center justify-center py-2">
         <h1 className="text-6xl font-bold">{title}</h1>
 
-        <div className="prose p-5 text-center lg:prose-xl">
-          <StructuredText data={content} />
-        </div>
+        <Section id="structured-text">
+          <div className="prose p-5 text-center lg:prose-xl">
+            <StructuredText data={content} />
+          </div>
+        </Section>
 
-        <h2 id="skills" className="text-4xl font-bold">
-          My Core Skills
-        </h2>
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          {skills.map((skill) => (
-            <div key={skill.id} className="block w-64 p-5">
-              <img src={skill.icon.url} alt={skill.icon.alt} />
-            </div>
-          ))}
-        </div>
+        <Section id="skills">
+          <h2 className="text-4xl font-bold">My Core Skills</h2>
+          <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+            {skills.map((skill) => (
+              <div key={skill.id} className="block w-64 p-5">
+                <img src={skill.icon.url} alt={skill.icon.alt} />
+              </div>
+            ))}
+          </div>
+        </Section>
 
-        <h2 id="projects" className="text-4xl font-bold">
-          My Projects
-        </h2>
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          {projects.map((project) => (
-            <Link key={project.id} href={`/projects/${encodeURIComponent(project.slug)}`}>
-              <a className="relative block w-1/2 p-5">
-                <Image data={project.heroImage.responsiveImage} />
-                <div className="z-1 absolute top-0 left-0 right-0 bottom-0 h-full w-full bg-black bg-opacity-50 opacity-0 transition duration-500 ease-in hover:opacity-100">
-                  <figcaption className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-4xl font-bold text-white">
-                    {project.title}
-                  </figcaption>
-                </div>
-              </a>
-            </Link>
-          ))}
-        </div>
+        <Section id="projects">
+          <h2 className="text-4xl font-bold">My Projects</h2>
+          <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+            {projects.map((project) => (
+              <Link key={project.id} href={`/projects/${encodeURIComponent(project.slug)}`}>
+                <a className="relative block w-1/2 p-5">
+                  <Image data={project.heroImage.responsiveImage} />
+                  <div className="z-1 absolute top-0 left-0 right-0 bottom-0 h-full w-full bg-black bg-opacity-50 opacity-0 transition duration-500 ease-in hover:opacity-100">
+                    <figcaption className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-4xl font-bold text-white">
+                      {project.title}
+                    </figcaption>
+                  </div>
+                </a>
+              </Link>
+            ))}
+          </div>
+        </Section>
 
         <h2 id="work" className="text-4xl font-bold">
           My Work (TODO)
