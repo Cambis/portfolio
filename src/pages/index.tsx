@@ -5,7 +5,7 @@ import { QueryListenerOptions, StructuredText, TitleMetaLinkTag } from 'react-da
 import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 import { Image } from 'react-datocms';
 
-import { Layout, Container, Footer } from 'components';
+import { Layout, Container } from 'components';
 import { sdk } from 'lib/datocms';
 import type { HomePageQuery, HomePageQueryVariables } from 'lib/graphql';
 import { HomePageDocument } from 'lib/graphql';
@@ -57,7 +57,9 @@ const HomePage = ({
           <StructuredText data={content} />
         </div>
 
-        <h2 className="text-4xl font-bold">My Core Skills</h2>
+        <h2 id="skills" className="text-4xl font-bold">
+          My Core Skills
+        </h2>
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           {skills.map((skill) => (
             <div key={skill.id} className="block w-64 p-5">
@@ -66,7 +68,9 @@ const HomePage = ({
           ))}
         </div>
 
-        <h2 className="text-4xl font-bold">My Projects</h2>
+        <h2 id="projects" className="text-4xl font-bold">
+          My Projects
+        </h2>
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           {projects.map((project) => (
             <Link key={project.id} href={`/projects/${encodeURIComponent(project.slug)}`}>
@@ -81,8 +85,11 @@ const HomePage = ({
             </Link>
           ))}
         </div>
+
+        <h2 id="work" className="text-4xl font-bold">
+          My Work (TODO)
+        </h2>
       </Container>
-      <Footer />
     </Layout>
   );
 };

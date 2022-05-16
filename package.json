@@ -30,6 +30,7 @@
     "datocms-client": "^3.5.19",
     "formidable": "^2.0.1",
     "formik": "^2.2.9",
+    "framer-motion": "^6.3.3",
     "graphql": "^16.4.0",
     "graphql-request": "^4.2.0",
     "jsonwebtoken": "^8.5.1",
