@@ -70,9 +70,13 @@ const HomePage = ({
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           {projects.map((project) => (
             <Link key={project.id} href={`/projects/${encodeURIComponent(project.slug)}`}>
-              <a className="block w-1/2 p-5">
+              <a className="relative block w-1/2 p-5">
                 <Image data={project.heroImage.responsiveImage} />
-                <h3>{project.title}</h3>
+                <div className="z-1 absolute top-0 left-0 right-0 bottom-0 h-full w-full bg-black bg-opacity-50 opacity-0 transition duration-500 ease-in hover:opacity-100">
+                  <figcaption className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-4xl font-bold text-white">
+                    {project.title}
+                  </figcaption>
+                </div>
               </a>
             </Link>
           ))}
