@@ -1,0 +1,11 @@
+fragment ProjectFields on ProjectRecord {
+  id
+  title
+  content {
+    value
+  }
+  slug
+  seo: _seoMetaTags {
+    ...metaTags
+  }
+}

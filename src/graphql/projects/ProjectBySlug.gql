@@ -1,0 +1,11 @@
+query ProjectBySlug($slug: String!) {
+  site: _site {
+    favicon: faviconMetaTags {
+      ...metaTags
+    }
+  }
+
+  project(filter: { slug: { eq: $slug } }) {
+    ...ProjectFields
+  }
+}
