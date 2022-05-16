@@ -52,7 +52,7 @@ const HomePage = ({
       <Container classNames="flex min-h-screen flex-col items-center justify-center py-2">
         <h1 className="text-6xl font-bold">{title}</h1>
 
-        <div className="prose lg:prose-xl text-center p-5">
+        <div className="prose p-5 text-center lg:prose-xl">
           <StructuredText data={content} />
         </div>
 
