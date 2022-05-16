@@ -8,4 +8,12 @@ fragment ProjectFields on ProjectRecord {
   seo: _seoMetaTags {
     ...metaTags
   }
+  externalLink
+  heroImage {
+    id
+    alt
+    responsiveImage {
+      ...responsiveImage
+    }
+  }
 }

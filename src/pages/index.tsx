@@ -1,5 +1,6 @@
 import type { GetStaticPropsContext, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 import { QueryListenerOptions, StructuredText, TitleMetaLinkTag } from 'react-datocms';
 import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 import { Image } from 'react-datocms';
@@ -68,10 +69,12 @@ const HomePage = ({
         <h2 className="text-4xl font-bold">My Projects</h2>
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           {projects.map((project) => (
-            <div key={project.id} className="block w-64 p-5">
-              <Image data={project.heroImage.responsiveImage} />
-              <h3>{project.title}</h3>
-            </div>
+            <Link key={project.id} href={`/projects/${encodeURIComponent(project.slug)}`}>
+              <a className="block w-1/2 p-5">
+                <Image data={project.heroImage.responsiveImage} />
+                <h3>{project.title}</h3>
+              </a>
+            </Link>
           ))}
         </div>
       </Container>

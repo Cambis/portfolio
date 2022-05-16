@@ -21,16 +21,6 @@ query HomePage {
   }
 
   projects: allProjects {
-    __typename
-    id
-    title
-    externalLink
-    heroImage {
-      id
-      alt
-      responsiveImage {
-        ...responsiveImage
-      }
-    }
+    ...ProjectFields
   }
 }
