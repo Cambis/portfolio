@@ -1,0 +1,36 @@
+query HomePage {
+  site: _site {
+    favicon: faviconMetaTags {
+      ...metaTags
+    }
+  }
+
+  homePage {
+    ...HomePageFields
+  }
+
+  skills: allSkills {
+    __typename
+    id
+    name
+    icon {
+      id
+      url
+      alt
+    }
+  }
+
+  projects: allProjects {
+    __typename
+    id
+    title
+    externalLink
+    heroImage {
+      id
+      alt
+      responsiveImage {
+        ...responsiveImage
+      }
+    }
+  }
+}
