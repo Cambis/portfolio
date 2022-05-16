@@ -18,7 +18,7 @@ const bugherdJs = `(function(d, t) {
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="en" className="scroll-smooth">
         <Head>
           <meta httpEquiv="Accept-CH" content="DPR, Width, Viewport-Width" />
           {process.env.NEXT_PUBLIC_GOOGLE_TAG_MANGER_ID && (
