@@ -65,14 +65,14 @@ const NavBar = () => {
         <AnimatePresence>
           {open ? (
             <motion.div
-              className="fixed right-0 top-0 h-[100vh] w-[24rem] translate-x-[-1px] rounded-lg border-[1px] border-red-100/20 bg-[#161B21] text-white transition"
+              className="fixed right-0 top-0 h-[100vh] w-[24rem] rounded-lg border-[1px] border-red-100/20 bg-[#161B21] text-white"
               initial={{ width: 0 }}
               animate={{ width: '24rem' }}
               exit={{
                 width: 0,
                 transition: {
                   delay: 0.7,
-                  duration: 0.3,
+                  duration: 5,
                 },
               }}
             >
@@ -94,13 +94,14 @@ const NavBar = () => {
                     ></path>
                   </svg>
                 </button>
-                <motion.div
-                  className="relative z-10 mt-[5rem]"
-                  initial="closed"
-                  animate="open"
-                  variants={sideVariants}
-                >
-                  <nav className="grid gap-y-8">
+                <div className="relative z-10 mt-[5rem]">
+                  <motion.nav
+                    className="grid gap-y-8"
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={sideVariants}
+                  >
                     {navData.map((item) => (
                       <Link key={item.name} href={item.href}>
                         <motion.a
@@ -112,8 +113,8 @@ const NavBar = () => {
                         </motion.a>
                       </Link>
                     ))}
-                  </nav>
-                </motion.div>
+                  </motion.nav>
+                </div>
               </div>
             </motion.div>
           ) : (
