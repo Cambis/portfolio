@@ -45,14 +45,12 @@ const HomePage = ({
   } = useQuerySubscription<HomePageQuery, HomePageQueryVariables>(subscription);
 
   const metaTags = [...homePage.seo, ...site.favicon] as TitleMetaLinkTag[];
-  const { title, content } = homePage;
+  const { content } = homePage;
 
   return (
     <Layout preview={subscription.preview}>
       <Head>{renderMetaTags(metaTags)}</Head>
       <Container classNames="flex min-h-screen flex-col items-center justify-center py-2">
-        <h1 className="text-6xl font-bold">{title}</h1>
-
         <Section id="structured-text">
           <div className="prose p-5 text-center lg:prose-xl">
             <StructuredText data={content} />
