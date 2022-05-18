@@ -2,11 +2,9 @@ import { useState } from 'react';
 
 import Link from 'next/link';
 
+import { Container } from 'components';
+
 const navData = [
-  {
-    name: 'Home',
-    href: '/',
-  },
   {
     name: 'Skills',
     href: '/#skills',
@@ -25,15 +23,17 @@ const NavBar = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="container sticky top-0 z-50 mx-auto flex w-full items-center justify-between px-5 py-6 text-2xl  font-bold">
+    <Container classNames="sticky top-0 z-50 mx-auto flex w-full items-center justify-between px-5 py-6 text-2xl font-bold">
       <Link href="/">
-        <h1 className="flex h-[3.5rem] items-center text-center">Logo</h1>
+        <a>
+          <h1 className="flex h-[3.5rem] items-center text-center">Home</h1>
+        </a>
       </Link>
       <nav className="hidden items-center space-x-10 md:flex">
         {navData.map((n) => {
           return (
             <Link key={n.name} href={n.href}>
-              {n.name}
+              <a>{n.name}</a>
             </Link>
           );
         })}
@@ -94,7 +94,7 @@ const NavBar = () => {
           </button>
         )}
       </div>
-    </div>
+    </Container>
   );
 };
 
