@@ -10,14 +10,7 @@ query HomePage {
   }
 
   skills: allSkills {
-    __typename
-    id
-    name
-    icon {
-      id
-      url
-      alt
-    }
+    ...SkillFields
   }
 
   projects: allProjects {

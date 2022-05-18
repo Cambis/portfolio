@@ -12,7 +12,7 @@ import {
   useQuerySubscription,
 } from 'react-datocms';
 
-import { Container, Footer, Layout, StructuredText } from 'components';
+import { Container, Layout, Section, Block, StructuredText } from 'components';
 import { sdk } from 'lib/datocms';
 import {
   ProjectBySlugDocument,
@@ -71,17 +71,31 @@ const Project = ({ subscription }: InferGetStaticPropsType<typeof getStaticProps
   } = useQuerySubscription<ProjectBySlugQuery, ProjectBySlugQueryVariables>(subscription);
 
   const metaTags = [...project.seo, ...site.favicon] as TitleMetaLinkTag[];
-  const { title, content } = project;
+  const { title, content, skills } = project;
+
+  console.log(content);
 
   return (
     <>
       <Layout preview={subscription.preview}>
         <Head>{renderMetaTags(metaTags)}</Head>
         <Container>
-          <h1 className="title">{title}</h1>
-          <StructuredText content={content} />
+          <h1 className="text-center text-4xl font-bold">{title}</h1>
+          <Section id="structured-text">
+            <div className="prose p-5 lg:prose-xl">
+              <StructuredText content={content} />
+            </div>
+          </Section>
+
+          <Section id="skills">
+            <h2 className="text-4xl font-bold">Skills Used</h2>
+            <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
+              {skills.map((skill) => (
+                <Block key={skill.id} record={skill} />
+              ))}
+            </div>
+          </Section>
         </Container>
-        <Footer />
       </Layout>
     </>
   );

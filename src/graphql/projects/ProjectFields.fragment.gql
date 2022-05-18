@@ -2,6 +2,7 @@ fragment ProjectFields on ProjectRecord {
   id
   title
   content {
+    __typename
     value
   }
   slug
@@ -15,5 +16,8 @@ fragment ProjectFields on ProjectRecord {
     responsiveImage {
       ...responsiveImage
     }
+  }
+  skills {
+    ...SkillFields
   }
 }

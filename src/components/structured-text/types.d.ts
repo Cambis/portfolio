@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { StructuredText } from 'datocms-structured-text-utils';
+import type { StructuredText, Record } from 'datocms-structured-text-utils';
 
 export type StructuredTextContentProps = {
   content: StructuredText<Record>;

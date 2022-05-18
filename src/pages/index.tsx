@@ -5,7 +5,7 @@ import { QueryListenerOptions, StructuredText, TitleMetaLinkTag } from 'react-da
 import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 import { Image } from 'react-datocms';
 
-import { Layout, Container, Section } from 'components';
+import { Layout, Container, Section, Block } from 'components';
 import { sdk } from 'lib/datocms';
 import type { HomePageQuery, HomePageQueryVariables } from 'lib/graphql';
 import { HomePageDocument } from 'lib/graphql';
@@ -61,9 +61,7 @@ const HomePage = ({
           <h2 className="text-4xl font-bold">My Core Skills</h2>
           <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
             {skills.map((skill) => (
-              <div key={skill.id} className="block w-64 p-5">
-                <img src={skill.icon.url} alt={skill.icon.alt} />
-              </div>
+              <Block key={skill.id} record={skill} />
             ))}
           </div>
         </Section>
