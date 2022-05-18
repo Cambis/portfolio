@@ -10,7 +10,7 @@ const Container = forwardRef(
     ref: RefObject<HTMLInputElement>,
   ) => {
     return (
-      <Wrapper ref={ref} className={cn('container', classNames)} {...props}>
+      <Wrapper ref={ref} className={cn('container mx-auto', classNames)} {...props}>
         {children}
       </Wrapper>
     );

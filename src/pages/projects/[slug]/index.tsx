@@ -12,7 +12,7 @@ import {
   useQuerySubscription,
 } from 'react-datocms';
 
-import { Container, Layout, Section, Block, StructuredText } from 'components';
+import { Container, Layout, Section, Block, PageHero, StructuredText } from 'components';
 import { sdk } from 'lib/datocms';
 import {
   ProjectBySlugDocument,
@@ -71,7 +71,7 @@ const Project = ({ subscription }: InferGetStaticPropsType<typeof getStaticProps
   } = useQuerySubscription<ProjectBySlugQuery, ProjectBySlugQueryVariables>(subscription);
 
   const metaTags = [...project.seo, ...site.favicon] as TitleMetaLinkTag[];
-  const { title, content, skills } = project;
+  const { title, content, skills, heroImage } = project;
 
   console.log(content);
 
@@ -79,6 +79,7 @@ const Project = ({ subscription }: InferGetStaticPropsType<typeof getStaticProps
     <>
       <Layout preview={subscription.preview}>
         <Head>{renderMetaTags(metaTags)}</Head>
+        <PageHero image={heroImage.responsiveImage} />
         <Container>
           <h1 className="text-center text-4xl font-bold">{title}</h1>
           <Section id="structured-text">
