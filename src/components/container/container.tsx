@@ -2,17 +2,23 @@ import { forwardRef, RefObject } from 'react';
 
 import cn from 'classnames';
 
-import { ContainerProps as Props } from './types';
+import type { ContainerProps as Props } from './types';
 
-const Container = (
-  { children, classNames }: Props,
-  ref: RefObject<HTMLInputElement>,
-): JSX.Element => {
-  return (
-    <div ref={ref} className={cn('container', classNames)}>
-      {children}
-    </div>
-  );
-};
+const Container = forwardRef(
+  <T extends keyof JSX.IntrinsicElements = 'div'>(
+    { children, classNames, tag: Wrapper = 'div', ...props }: Props<T>,
+    ref: RefObject<HTMLInputElement>,
+  ) => {
+    return (
+      <Wrapper ref={ref} className={cn('container', classNames)} {...props}>
+        {children}
+      </Wrapper>
+    );
+  },
+);
 
-export default forwardRef(Container);
+Container.displayName = 'Container';
+
+export default Container as <T extends keyof JSX.IntrinsicElements>(
+  props: Props<T> & { ref?: RefObject<HTMLInputElement> },
+) => JSX.Element;

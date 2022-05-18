@@ -1,3 +1,4 @@
+import type { HTMLMotionProps, ForwardRefComponent } from 'framer-motion';
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
@@ -25,6 +26,13 @@ declare global {
       SENTRY_PROJECT: string;
       SENTRY_REPORT_URI: string;
       SENTRY_AUTH_TOKEN: string;
+    }
+  }
+
+  namespace JSX {
+    interface IntrinsicElements {
+      // "motion.div": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      'motion.div': ForwardRefComponent<HTMLDivElement, HTMLMotionProps<'div'>>;
     }
   }
 }
