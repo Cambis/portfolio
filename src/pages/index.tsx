@@ -51,13 +51,13 @@ const HomePage = ({
     <Layout preview={subscription.preview}>
       <Head>{renderMetaTags(metaTags)}</Head>
       <Container classNames="flex min-h-screen flex-col items-center justify-center py-2">
-        <Section id="structured-text">
+        <Section id="structured-text" classNames="text-center">
           <div className="prose p-5 text-center lg:prose-xl">
             <StructuredText data={content} />
           </div>
         </Section>
 
-        <Section id="skills">
+        <Section id="skills" classNames="text-center">
           <h2 className="text-4xl font-bold">My Core Skills</h2>
           <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
             {skills.map((skill) => (
@@ -66,12 +66,12 @@ const HomePage = ({
           </div>
         </Section>
 
-        <Section id="projects">
+        <Section id="projects" classNames="text-center">
           <h2 className="text-4xl font-bold">My Projects</h2>
           <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
             {projects.map((project) => (
               <Link key={project.id} href={`/projects/${encodeURIComponent(project.slug)}`}>
-                <a className="relative block w-1/2 p-5">
+                <a className="relative block p-5 lg:w-1/2">
                   <Image data={project.heroImage.responsiveImage} />
                   <div className="z-1 absolute top-0 left-0 right-0 bottom-0 h-full w-full bg-black bg-opacity-50 opacity-0 transition duration-500 ease-in hover:opacity-100">
                     <figcaption className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-4xl font-bold text-white">

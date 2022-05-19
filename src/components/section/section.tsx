@@ -4,7 +4,7 @@ import { SectionProps as Props } from './types';
 
 const Section = ({ id, children, classNames }: Props): JSX.Element => {
   return (
-    <section id={id} className={cn('flex flex-col text-center', classNames)}>
+    <section id={id} className={cn('mx-auto flex flex-col p-5', classNames)}>
       {children}
     </section>
   );

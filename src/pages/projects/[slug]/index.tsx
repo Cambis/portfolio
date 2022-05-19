@@ -71,15 +71,13 @@ const Project = ({ subscription }: InferGetStaticPropsType<typeof getStaticProps
   } = useQuerySubscription<ProjectBySlugQuery, ProjectBySlugQueryVariables>(subscription);
 
   const metaTags = [...project.seo, ...site.favicon] as TitleMetaLinkTag[];
-  const { title, content, skills, heroImage } = project;
-
-  console.log(content);
+  const { title, content, skills, heroImage, externalLink } = project;
 
   return (
     <>
       <Layout preview={subscription.preview}>
         <Head>{renderMetaTags(metaTags)}</Head>
-        <PageHero image={heroImage.responsiveImage} />
+        <PageHero image={heroImage.responsiveImage} externalLink={externalLink} />
         <Container>
           <h1 className="text-center text-4xl font-bold">{title}</h1>
           <Section id="structured-text">

@@ -46,7 +46,7 @@ const NavBar = () => {
   const [open, cycleOpen] = useCycle(false, true);
 
   return (
-    <Container className="sticky top-0 z-50 mx-auto flex w-full items-center justify-between px-5 py-6 text-2xl font-bold">
+    <Container classNames="flex w-full items-center justify-between px-5 py-6 text-2xl font-bold">
       <Link href="/">
         <a>
           <h1 className="flex h-[3.5rem] items-center text-center">Home</h1>
