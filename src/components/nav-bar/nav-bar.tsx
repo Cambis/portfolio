@@ -2,21 +2,7 @@ import { motion, AnimatePresence, useCycle } from 'framer-motion';
 import Link from 'next/link';
 
 import { Container } from 'components';
-
-const navData = [
-  {
-    name: 'Skills',
-    href: '/#skills',
-  },
-  {
-    name: 'Projects',
-    href: '/#projects',
-  },
-  {
-    name: 'Contact',
-    href: '#contact',
-  },
-];
+import { NAV_DATA } from 'lib/constants';
 
 const sideVariants = {
   closed: {
@@ -53,7 +39,7 @@ const NavBar = () => {
         </a>
       </Link>
       <nav className="hidden items-center space-x-10 md:flex">
-        {navData.map((n) => {
+        {NAV_DATA.map((n) => {
           return (
             <Link key={n.name} href={n.href}>
               <a>{n.name}</a>
