@@ -30,7 +30,7 @@ const StructuredText = ({ content }: StructuredTextContentProps): JSX.Element =>
     <DatoStructuredText
       data={content}
       renderInlineRecord={renderInlineRecord}
-      renderLinkToRecord={renderLinkToRecord}
+      // renderLinkToRecord={renderLinkToRecord}
       renderBlock={renderBlock}
     />
   );
