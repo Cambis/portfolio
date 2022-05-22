@@ -5,7 +5,7 @@ import { QueryListenerOptions, StructuredText, TitleMetaLinkTag } from 'react-da
 import { renderMetaTags, useQuerySubscription } from 'react-datocms';
 import { Image } from 'react-datocms';
 
-import { Layout, Container, Section, Block } from 'components';
+import { Layout, Container, Section, Block, ContactForm } from 'components';
 import { sdk } from 'lib/datocms';
 import type { HomePageQuery, HomePageQueryVariables } from 'lib/graphql';
 import { HomePageDocument } from 'lib/graphql';
@@ -86,6 +86,7 @@ const HomePage = ({
 
         <Section id="contact" classNames="text-center">
           <h2 className="text-4xl font-bold">Contact (TODO)</h2>
+          <ContactForm />
         </Section>
       </Container>
     </Layout>
