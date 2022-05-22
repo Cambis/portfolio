@@ -1,0 +1,23 @@
+fragment ProjectFields on ProjectRecord {
+  id
+  title
+  content {
+    __typename
+    value
+  }
+  slug
+  seo: _seoMetaTags {
+    ...metaTags
+  }
+  externalLink
+  heroImage {
+    id
+    alt
+    responsiveImage {
+      ...responsiveImage
+    }
+  }
+  skills {
+    ...SkillFields
+  }
+}

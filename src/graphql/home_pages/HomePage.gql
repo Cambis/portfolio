@@ -10,27 +10,10 @@ query HomePage {
   }
 
   skills: allSkills {
-    __typename
-    id
-    name
-    icon {
-      id
-      url
-      alt
-    }
+    ...SkillFields
   }
 
   projects: allProjects {
-    __typename
-    id
-    title
-    externalLink
-    heroImage {
-      id
-      alt
-      responsiveImage {
-        ...responsiveImage
-      }
-    }
+    ...ProjectFields
   }
 }

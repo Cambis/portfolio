@@ -1,0 +1,5 @@
+query AllProjectSlugs {
+  allProjects {
+    slug
+  }
+}

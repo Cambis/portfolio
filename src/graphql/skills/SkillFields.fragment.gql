@@ -1,0 +1,10 @@
+fragment SkillFields on SkillRecord {
+  __typename
+  id
+  name
+  icon {
+    id
+    url
+    alt
+  }
+}
