@@ -84,9 +84,9 @@ const HomePage = ({
           </div>
         </Section>
 
-        <h2 id="work" className="text-4xl font-bold">
-          My Work (TODO)
-        </h2>
+        <Section id="contact" classNames="text-center">
+          <h2 className="text-4xl font-bold">Contact (TODO)</h2>
+        </Section>
       </Container>
     </Layout>
   );
