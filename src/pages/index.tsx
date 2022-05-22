@@ -85,7 +85,10 @@ const HomePage = ({
         </Section>
 
         <Section id="contact" classNames="text-center">
-          <h2 className="text-4xl font-bold">Contact (TODO)</h2>
+          <h2 className="text-4xl font-bold">Contact</h2>
+          <div className="prose p-4 text-left lg:prose-lg">
+            Enter your details below and I will be in touch as soon as possible.
+          </div>
           <ContactForm />
         </Section>
       </Container>

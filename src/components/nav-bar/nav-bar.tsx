@@ -88,7 +88,7 @@ const NavBar = () => {
                     exit="closed"
                     variants={sideVariants}
                   >
-                    {navData.map((item) => (
+                    {NAV_DATA.map((item) => (
                       <Link key={item.name} href={item.href}>
                         <motion.a
                           className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"

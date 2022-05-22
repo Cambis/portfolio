@@ -38,6 +38,7 @@ const csp = `
     https://d2iiunr5ws5ch1.cloudfront.net/;
   script-src 'self' 'unsafe-inline' 'unsafe-eval'
     https://www.google.com
+    https://www.googletagmanager.com
     https://tagmanager.google.com
     https://www.google-analytics.com
     https://ssl.google-analytics.com

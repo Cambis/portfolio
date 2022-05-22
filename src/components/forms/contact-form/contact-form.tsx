@@ -121,11 +121,9 @@ const ContactForm = (): JSX.Element => {
           <Container>
             {!!formStatus && formStatus.type && (
               <div
-                className={cn(
-                  'Alert',
-                  { 'Alert--success': formStatus.type === 'success' },
-                  { 'Alert--error': formStatus.type === 'error' },
-                )}
+                className={cn('prose p-4 text-left lg:prose-lg', {
+                  'border-red-500 text-red-600': formStatus.type === 'error',
+                })}
               >
                 {formStatus.message}
               </div>
@@ -150,7 +148,7 @@ const ContactForm = (): JSX.Element => {
                 </label>
 
                 {/* ====== FIRST NAME ====== */}
-                <fieldset className="w-1/2">
+                <fieldset className="mb-4 w-full px-4 lg:w-1/2">
                   <label htmlFor="contact-firstName">
                     <span className="block w-full">
                       First name
@@ -177,7 +175,7 @@ const ContactForm = (): JSX.Element => {
                 </fieldset>
 
                 {/* ====== LAST NAME ====== */}
-                <fieldset className="w-1/2">
+                <fieldset className="mb-4 w-full px-4 lg:w-1/2">
                   <label htmlFor="contact-lastName">
                     <span className="block w-full">
                       Last name
@@ -204,7 +202,7 @@ const ContactForm = (): JSX.Element => {
                 </fieldset>
 
                 {/* ====== EMAIL ====== */}
-                <fieldset className="w-1/2">
+                <fieldset className="mb-4 w-full px-4 lg:w-1/2">
                   <label htmlFor="contact-email">
                     <span className="block w-full">
                       Email
@@ -231,7 +229,7 @@ const ContactForm = (): JSX.Element => {
                 </fieldset>
 
                 {/* ====== MESSAGE ====== */}
-                <fieldset className="w-full">
+                <fieldset className="mb-4 w-full px-4">
                   <label htmlFor="contact-message">
                     <span className="block w-full">Message</span>
                     <textarea
