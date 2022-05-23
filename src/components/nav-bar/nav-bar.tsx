@@ -52,6 +52,7 @@ const NavBar = () => {
         <AnimatePresence>
           {open ? (
             <motion.div
+              key="mobile-menu"
               className="fixed right-0 top-0 h-[100vh] w-[24rem] rounded-lg border-[1px] border-red-100/20 bg-[#161B21] text-white"
               initial={{ width: 0 }}
               animate={{ width: '24rem' }}
@@ -59,7 +60,7 @@ const NavBar = () => {
                 width: 0,
                 transition: {
                   delay: 0.7,
-                  duration: 5,
+                  duration: 0.3,
                 },
               }}
             >
