@@ -70,7 +70,7 @@ const ContactForm = (): JSX.Element => {
 
         data.set('recaptcha', token);
 
-        await fetch('/api/forms/notifications', {
+        await fetch('/api/forms/contact', {
           method: 'POST',
           headers: new Headers({
             Accept: 'application/json',
@@ -83,18 +83,7 @@ const ContactForm = (): JSX.Element => {
               recaptchaRef.current.reset();
               setFormStatus(formStatusProps.error);
             } else {
-              res.json().then((apiData) => {
-                setFormStatus(formStatusProps.success);
-                data.append('token', apiData?.token);
-
-                fetch('/api/forms/submissions', {
-                  method: 'POST',
-                  headers: new Headers({
-                    Accept: 'application/json',
-                  }),
-                  body: data,
-                });
-              });
+              setFormStatus(formStatusProps.success);
             }
           })
           .catch(() => {

@@ -1,16 +1,14 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { withSentry } from '@sentry/nextjs';
 import Cors from 'cors';
-import type { Files } from 'formidable';
 import type { NextApiResponse, NextApiHandler } from 'next';
 
 import {
   validateSubmissionData,
-  submitDataToDato,
-  uploadFileToDato,
+  verifyRecaptcha,
   runMiddleware,
-  authenticateFormSubmission,
   useFormidable,
+  submitFormDataToFormspree,
 } from 'lib/api';
 import type {
   IFormSubmission,
@@ -19,13 +17,13 @@ import type {
 } from 'lib/api/types';
 
 type Request = IFormSubmission & {
-  token: string;
   [key: string]: string | string[] | DatoSingleAssetField;
 };
 
 type Response = {
   message?: string;
   errors?: string[];
+  token?: string;
 };
 
 // Disable default next body parser
@@ -50,44 +48,32 @@ const handler: NextApiHandler<Response> = async (
   ]);
 
   try {
-    await runMiddleware<Response>(req, res, authenticateFormSubmission);
-  } catch (err) {
-    res.status(401);
-    res.json({ errors: [err.message] });
-    return;
-  }
-
-  try {
     await runMiddleware<Response>(req, res, validateSubmissionData);
   } catch (err) {
     res.status(401);
     res.json({ errors: [err.message] });
   }
 
-  const fields = { ...req.fields } as Request;
-  const files = { ...req.files } as Files;
-
-  // Submit to DatoCMS if production
-  if (process.env.NODE_ENV === 'production') {
-    try {
-      const fileIds = await Promise.all(Object.values(files).map((file) => uploadFileToDato(file)));
-
-      await submitDataToDato<Request>(fields, fileIds);
-
-      res.status(201);
-      res.json({ message: 'Success!' });
-      return;
-    } catch (err) {
-      res.status(err.code || 500);
-      res.json({ errors: [err.message] });
-      return;
-    }
+  try {
+    await runMiddleware<Response>(req, res, verifyRecaptcha);
+  } catch (err) {
+    res.status(401);
+    res.json({ errors: [err.message] });
   }
 
-  setTimeout(() => console.log('Simulating submission delay...'), 10000);
+  const fields = { ...req.fields } as Request;
 
-  res.status(201);
-  res.json({ message: 'Success!' });
+  try {
+    if (process.env.NODE_ENV === 'production') {
+      await submitFormDataToFormspree<Request>(fields);
+    }
+    res.status(200);
+    res.json({ message: 'Success!' });
+  } catch (err) {
+    console.log(err);
+    res.status(err.code || 500);
+    res.json({ errors: [err.message] });
+  }
 };
 
 export default withSentry(handler);
