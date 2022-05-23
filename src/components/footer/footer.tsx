@@ -25,7 +25,7 @@ const Footer = (): JSX.Element => (
         </a>
         <a
           className="inline-block px-4 py-5 lg:mr-4 lg:p-0"
-          href="https://github.com/Cambis"
+          href="https://www.linkedin.com/in/cameron-bryers-3b179023b/"
           target="_blank"
           rel="noreferrer"
         >

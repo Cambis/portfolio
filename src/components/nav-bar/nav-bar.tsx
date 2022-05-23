@@ -47,6 +47,9 @@ const NavBar = () => {
             </Link>
           );
         })}
+        <a href="/cameron-bryers-resume-2022-v0_1.pdf" download>
+          Resume
+        </a>
       </nav>
       <div className="md:hidden">
         <AnimatePresence>
@@ -101,12 +104,21 @@ const NavBar = () => {
                         </motion.a>
                       </Link>
                     ))}
+                    <motion.a
+                      className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
+                      whileHover={{ scale: 1.1 }}
+                      variants={itemVariants}
+                      href="/cameron-bryers-resume-2022-v0_1.pdf"
+                      download
+                    >
+                      <h1 className="my-3 ml-3 text-3xl font-bold ">Resume</h1>
+                    </motion.a>
                   </motion.nav>
                 </div>
               </div>
               <div className="px-5 pt-5 pb-6">
                 <div className="relative z-10 mt-[5rem]">
-                  <motion.ul
+                  <motion.div
                     className="grid gap-y-8"
                     initial="closed"
                     animate="open"
@@ -119,12 +131,14 @@ const NavBar = () => {
                           className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
                           whileHover={{ scale: 1.1 }}
                           variants={itemVariants}
+                          href="/cameron-bryers-resume-2022-v0_1.pdf"
+                          download
                         >
                           <h1 className="my-3 ml-3 text-3xl font-bold ">{item.name}</h1>
                         </motion.a>
                       </Link>
                     ))}
-                  </motion.ul>
+                  </motion.div>
                 </div>
               </div>
               <div className="px-5 pt-5 pb-6">
@@ -139,7 +153,11 @@ const NavBar = () => {
                     <a href="https://github.com/Cambis" target="_blank" rel="noreferrer">
                       <FaGithub className="m-auto block" />
                     </a>
-                    <a href="https://github.com/Cambis" target="_blank" rel="noreferrer">
+                    <a
+                      href="https://www.linkedin.com/in/cameron-bryers-3b179023b/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <FaLinkedin className="m-auto block" />
                     </a>
                   </motion.div>
