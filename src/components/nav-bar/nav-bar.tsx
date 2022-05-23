@@ -1,11 +1,11 @@
-import { motion, AnimatePresence, useCycle } from 'framer-motion';
+import { motion, AnimatePresence, useCycle, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 import { Container } from 'components';
 import { FOOTER_NAV_DATA, NAV_DATA } from 'lib/constants';
 
-const sideVariants = {
+const sideVariants: Variants = {
   closed: {
     transition: {
       staggerChildren: 0.2,
@@ -20,7 +20,7 @@ const sideVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   closed: {
     opacity: 0,
   },

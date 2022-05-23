@@ -43,8 +43,7 @@ const cardVariants: Variants = {
     y: 300,
   },
   onscreen: {
-    y: 50,
-    rotate: -10,
+    y: 300,
     transition: {
       type: 'spring',
       bounce: 0.4,
@@ -82,7 +81,9 @@ const HomePage = ({
             viewport={{ once: true, amount: 0.8 }}
           >
             {skills.map((skill) => (
-              <Block key={skill.id} record={skill} />
+              <motion.div key={skill.id} variants={cardVariants}>
+                <Block record={skill} />
+              </motion.div>
             ))}
           </motion.div>
         </Section>
