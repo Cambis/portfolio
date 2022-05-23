@@ -1,4 +1,3 @@
-import { motion, Variants } from 'framer-motion';
 import type { GetStaticPropsContext, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -38,20 +37,6 @@ export const getStaticProps: GetStaticProps = async ({
   };
 };
 
-const cardVariants: Variants = {
-  offscreen: {
-    y: 300,
-  },
-  onscreen: {
-    y: 300,
-    transition: {
-      type: 'spring',
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
-};
-
 const HomePage = ({
   subscription,
 }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
@@ -74,18 +59,11 @@ const HomePage = ({
 
         <Section id="skills" classNames="text-center">
           <h2 className="text-4xl font-bold">My Core Skills</h2>
-          <motion.div
-            className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full"
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.8 }}
-          >
+          <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
             {skills.map((skill) => (
-              <motion.div key={skill.id} variants={cardVariants}>
-                <Block record={skill} />
-              </motion.div>
+              <Block key={skill.id} record={skill} />
             ))}
-          </motion.div>
+          </div>
         </Section>
 
         <Section id="projects" classNames="text-center">
