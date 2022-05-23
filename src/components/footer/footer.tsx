@@ -5,31 +5,31 @@ import { Container } from 'components';
 import { FOOTER_NAV_DATA } from 'lib/constants';
 
 const Footer = (): JSX.Element => (
-  <footer className="flex w-full flex-col items-center justify-center">
-    <Container classNames="flex flex-row w-full my-5">
-      <div className="w-full text-left lg:w-1/2">
+  <footer>
+    <Container classNames="flex flex-wrap space-between w-full my-5">
+      <div className="w-full text-center lg:w-1/2 lg:text-left">
         {FOOTER_NAV_DATA.map((item) => (
           <Link key={item.name} href={item.href}>
             <a className="px-4 py-5">{item.name}</a>
           </Link>
         ))}
       </div>
-      <div className="w-full text-right lg:w-1/2">
+      <div className="w-full text-center lg:w-1/2 lg:text-right">
         <a
-          className="mr-4 inline-block"
+          className="inline-block px-4 py-5 lg:mr-4 lg:p-0"
           href="https://github.com/Cambis"
           target="_blank"
           rel="noreferrer"
         >
-          <FaGithub />
+          <FaGithub className="m-auto block" />
         </a>
         <a
-          className="mr-4 inline-block"
+          className="inline-block px-4 py-5 lg:mr-4 lg:p-0"
           href="https://github.com/Cambis"
           target="_blank"
           rel="noreferrer"
         >
-          <FaLinkedin />
+          <FaLinkedin className="m-auto block" />
         </a>
       </div>
     </Container>

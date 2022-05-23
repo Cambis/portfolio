@@ -1,8 +1,9 @@
 import { motion, AnimatePresence, useCycle } from 'framer-motion';
 import Link from 'next/link';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 import { Container } from 'components';
-import { NAV_DATA } from 'lib/constants';
+import { FOOTER_NAV_DATA, NAV_DATA } from 'lib/constants';
 
 const sideVariants = {
   closed: {
@@ -100,6 +101,47 @@ const NavBar = () => {
                       </Link>
                     ))}
                   </motion.nav>
+                </div>
+              </div>
+              <div className="px-5 pt-5 pb-6">
+                <div className="relative z-10 mt-[5rem]">
+                  <motion.ul
+                    className="grid gap-y-8"
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={sideVariants}
+                  >
+                    {FOOTER_NAV_DATA.map((item) => (
+                      <Link key={item.name} href={item.href}>
+                        <motion.a
+                          className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
+                          whileHover={{ scale: 1.1 }}
+                          variants={itemVariants}
+                        >
+                          <h1 className="my-3 ml-3 text-3xl font-bold ">{item.name}</h1>
+                        </motion.a>
+                      </Link>
+                    ))}
+                  </motion.ul>
+                </div>
+              </div>
+              <div className="px-5 pt-5 pb-6">
+                <div className="relative z-10 mt-[5rem]">
+                  <motion.div
+                    className="grid grid-cols-2 justify-center gap-y-8"
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={sideVariants}
+                  >
+                    <a href="https://github.com/Cambis" target="_blank" rel="noreferrer">
+                      <FaGithub className="m-auto block" />
+                    </a>
+                    <a href="https://github.com/Cambis" target="_blank" rel="noreferrer">
+                      <FaLinkedin className="m-auto block" />
+                    </a>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
