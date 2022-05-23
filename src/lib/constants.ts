@@ -38,3 +38,14 @@ export const NAV_DATA = [
     href: '#contact',
   },
 ];
+
+export const FOOTER_NAV_DATA = [
+  {
+    name: 'Privacy Policy',
+    href: '/privacy-policy',
+  },
+  {
+    name: 'Sitemap',
+    href: '/sitemap.xml',
+  },
+];
