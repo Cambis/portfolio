@@ -1,24 +1,11 @@
-import { motion, AnimatePresence, useCycle } from 'framer-motion';
+import { motion, AnimatePresence, useCycle, Variants } from 'framer-motion';
 import Link from 'next/link';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 import { Container } from 'components';
+import { FOOTER_NAV_DATA, NAV_DATA } from 'lib/constants';
 
-const navData = [
-  {
-    name: 'Skills',
-    href: '/#skills',
-  },
-  {
-    name: 'Projects',
-    href: '/#projects',
-  },
-  {
-    name: 'Contact',
-    href: '#contact',
-  },
-];
-
-const sideVariants = {
+const sideVariants: Variants = {
   closed: {
     transition: {
       staggerChildren: 0.2,
@@ -33,7 +20,7 @@ const sideVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   closed: {
     opacity: 0,
   },
@@ -53,18 +40,22 @@ const NavBar = () => {
         </a>
       </Link>
       <nav className="hidden items-center space-x-10 md:flex">
-        {navData.map((n) => {
+        {NAV_DATA.map((n) => {
           return (
             <Link key={n.name} href={n.href}>
               <a>{n.name}</a>
             </Link>
           );
         })}
+        <a href="/cameron-bryers-resume-2022-v0_1.pdf" download>
+          Resume
+        </a>
       </nav>
       <div className="md:hidden">
         <AnimatePresence>
           {open ? (
             <motion.div
+              key="mobile-menu"
               className="fixed right-0 top-0 h-[100vh] w-[24rem] rounded-lg border-[1px] border-red-100/20 bg-[#161B21] text-white"
               initial={{ width: 0 }}
               animate={{ width: '24rem' }}
@@ -72,7 +63,7 @@ const NavBar = () => {
                 width: 0,
                 transition: {
                   delay: 0.7,
-                  duration: 5,
+                  duration: 0.3,
                 },
               }}
             >
@@ -102,7 +93,7 @@ const NavBar = () => {
                     exit="closed"
                     variants={sideVariants}
                   >
-                    {navData.map((item) => (
+                    {NAV_DATA.map((item) => (
                       <Link key={item.name} href={item.href}>
                         <motion.a
                           className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
@@ -113,7 +104,63 @@ const NavBar = () => {
                         </motion.a>
                       </Link>
                     ))}
+                    <motion.a
+                      className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
+                      whileHover={{ scale: 1.1 }}
+                      variants={itemVariants}
+                      href="/cameron-bryers-resume-2022-v0_1.pdf"
+                      download
+                    >
+                      <h1 className="my-3 ml-3 text-3xl font-bold ">Resume</h1>
+                    </motion.a>
                   </motion.nav>
+                </div>
+              </div>
+              <div className="px-5 pt-5 pb-6">
+                <div className="relative z-10 mt-[5rem]">
+                  <motion.div
+                    className="grid gap-y-8"
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={sideVariants}
+                  >
+                    {FOOTER_NAV_DATA.map((item) => (
+                      <Link key={item.name} href={item.href}>
+                        <motion.a
+                          className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
+                          whileHover={{ scale: 1.1 }}
+                          variants={itemVariants}
+                          href="/cameron-bryers-resume-2022-v0_1.pdf"
+                          download
+                        >
+                          <h1 className="my-3 ml-3 text-3xl font-bold ">{item.name}</h1>
+                        </motion.a>
+                      </Link>
+                    ))}
+                  </motion.div>
+                </div>
+              </div>
+              <div className="px-5 pt-5 pb-6">
+                <div className="relative z-10 mt-[5rem]">
+                  <motion.div
+                    className="grid grid-cols-2 justify-center gap-y-8"
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    variants={sideVariants}
+                  >
+                    <a href="https://github.com/Cambis" target="_blank" rel="noreferrer">
+                      <FaGithub className="m-auto block" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/cameron-bryers-3b179023b/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaLinkedin className="m-auto block" />
+                    </a>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

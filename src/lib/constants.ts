@@ -23,3 +23,29 @@ export const FORM_COPY = {
   MAX_FILE_UPLOAD_SIZE: 33554432.0,
   POSITIVE_INT: 'Must be a positive integer',
 };
+
+export const NAV_DATA = [
+  {
+    name: 'Skills',
+    href: '/#skills',
+  },
+  {
+    name: 'Projects',
+    href: '/#projects',
+  },
+  {
+    name: 'Contact',
+    href: '#contact',
+  },
+];
+
+export const FOOTER_NAV_DATA = [
+  {
+    name: 'Privacy Policy',
+    href: '/privacy-policy',
+  },
+  {
+    name: 'Sitemap',
+    href: '/sitemap.xml',
+  },
+];

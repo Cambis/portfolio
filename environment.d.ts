@@ -26,6 +26,7 @@ declare global {
       SENTRY_PROJECT: string;
       SENTRY_REPORT_URI: string;
       SENTRY_AUTH_TOKEN: string;
+      NEXT_FORM_SUBMISSION_ENDPOINT: string;
     }
   }
 
