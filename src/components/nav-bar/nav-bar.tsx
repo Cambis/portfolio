@@ -47,7 +47,7 @@ const NavBar = () => {
             </Link>
           );
         })}
-        <a href="/cameron-bryers-resume-2022-v0_1.pdf" download>
+        <a href="/cameron-bryers-resume-2022.pdf" download>
           Resume
         </a>
       </nav>
@@ -108,7 +108,7 @@ const NavBar = () => {
                       className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
                       whileHover={{ scale: 1.1 }}
                       variants={itemVariants}
-                      href="/cameron-bryers-resume-2022-v0_1.pdf"
+                      href="/cameron-bryers-resume-2022.pdf"
                       download
                     >
                       <h1 className="my-3 ml-3 text-3xl font-bold ">Resume</h1>
@@ -131,7 +131,7 @@ const NavBar = () => {
                           className="-m-3 flex items-center rounded-md border-[1px] border-gray-500/60  p-3 hover:bg-black/20"
                           whileHover={{ scale: 1.1 }}
                           variants={itemVariants}
-                          href="/cameron-bryers-resume-2022-v0_1.pdf"
+                          href="/cameron-bryers-resume-2022.pdf"
                           download
                         >
                           <h1 className="my-3 ml-3 text-3xl font-bold ">{item.name}</h1>
